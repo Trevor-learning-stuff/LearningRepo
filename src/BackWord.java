@@ -37,10 +37,10 @@ public class BackWord {
         inputWord = keyboard.nextLine();
 
         while (!inputWord.equalsIgnoreCase("quit")) {
-            String firstLetter;
+            char firstLetter;
             String backwardsWord = "";
 
-            firstLetter = inputWord.substring(0, 1);
+            firstLetter = inputWord.charAt(0);
             newWord = inputWord.substring(1) + firstLetter;
 
             for (int i = newWord.length() - 1; i >= 0; i--) {
