@@ -23,6 +23,7 @@
  *      prompt the user for another word or the word "quit"
  * end
  */
+
 import java.util.Scanner;
 
 public class BackWord {
