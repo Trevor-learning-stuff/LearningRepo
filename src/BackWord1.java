@@ -26,7 +26,7 @@
 
 import java.util.Scanner;
 
-public class BackWord {
+public class BackWord1 {
 
     public static void main(String[] args) {
         String inputWord;
