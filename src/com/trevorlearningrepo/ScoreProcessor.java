@@ -27,7 +27,7 @@ public class ScoreProcessor {
     public static void main(String[] args) {
 
         int numberOfGrades = 0;
-        int examScore;
+        int examScore = 0;
         int numberOfA = 0;
         int numberOfB = 0;
         int numberOfC = 0;
