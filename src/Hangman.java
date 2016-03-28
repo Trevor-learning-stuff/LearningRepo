@@ -117,7 +117,10 @@ public class Hangman {
         System.out.println("Congratulations, you found the secret word: " + getSecretWord());
     }
 
-    public static void main(String[] args) { Hangman game = new Hangman(); game.initialize("Happiness");
-        System.out.println("Lets play a round of hangman."); game.playGame();
+    public static void main(String[] args) {
+        Hangman game = new Hangman();
+        game.initialize("Happiness");
+        System.out.println("Lets play a round of hangman.");
+        game.playGame();
     }
 }
