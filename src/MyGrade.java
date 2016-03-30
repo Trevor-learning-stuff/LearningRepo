@@ -2,7 +2,7 @@ package com.trevorlearningrepo;
 
 /**
  * Programmer: Trevor Campbell             CSC110AB Module 3 Selection Assignment 2
- * Date: February 12, 2016
+ * Date1: February 12, 2016
  * Description: This program prompts the user for a date and then validates that the date is legitimate.
  *
  * Input: total exam points, total homework points, total assignment points

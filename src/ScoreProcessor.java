@@ -1,6 +1,6 @@
 /**
  * Programmer: Trevor Campbell             CSC110AB programming assignment 4
- * Date: February 29, 2016
+ * Date1: February 29, 2016
  *
  * Description: Prompts user for exam scores until a negative number is entered. Prints out the total grades entered
  * and a count of each grade entered.

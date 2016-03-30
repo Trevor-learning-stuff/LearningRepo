@@ -2,7 +2,7 @@ package com.trevorlearningrepo;
 
 /**
  * Programmer: Trevor Campbell             CSC110AB programming assignment 2
- * Date: January 23, 2016
+ * Date1: January 23, 2016
  * Description: This program takes an input of degrees Fahrenheit from the user, converts it to degrees Celsius
  *      and displays the result.
  * Input: User is prompted for the temperature of type, integer

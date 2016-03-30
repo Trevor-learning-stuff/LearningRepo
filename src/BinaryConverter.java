@@ -1,6 +1,6 @@
 package com.trevorlearningrepo; /**
  * Programmer: Trevor Campbell             CSC110AB programming assignment 2
- * Date: January 29, 2016
+ * Date1: January 29, 2016
  * Description: Prompts the user for a 4 digit binary number, stores the number as a string,
  * breaks the string into substrings and then converts each substring into a decimal value.
  *

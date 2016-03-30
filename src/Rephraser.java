@@ -2,7 +2,7 @@ package com.trevorlearningrepo;
 
 /**
  * Programmer: Trevor Campbell             CSC110AB programming assignment 2
- * Date: January 25, 2016
+ * Date1: January 25, 2016
  * Description: Prompts the user for a line of text and then takes the first word and moves it to the end and makes the new
  * first word uppercase and the new last word lowercase
  *

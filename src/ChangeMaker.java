@@ -1,6 +1,6 @@
 package com.trevorlearningrepo; /**
  * Programmer: Trevor Campbell             CSC110AB programming assignment 2
- * Date: January 25, 2016
+ * Date1: January 25, 2016
  * Description: This program prompts for the price of an object it then calculates the difference of 100 and the given
  * price. After the difference is found, it then calculates the minimum number of coins required as change.
  *
