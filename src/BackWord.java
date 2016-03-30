@@ -1,6 +1,6 @@
 /**
  * Programmer: Trevor Campbell             CSC110AB programming assignment 4
- * Date: February 29, 2016
+ * Date1: February 29, 2016
  *
  * Description: Prompts user for a word, moves the first letter to the back of the word and checks to see if the reverse
  * word is equal to the input word

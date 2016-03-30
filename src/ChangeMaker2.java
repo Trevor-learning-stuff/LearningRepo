@@ -1,7 +1,7 @@
 package com.trevorlearningrepo;
 /**
  * Programmer: Trevor Campbell             CSC110AB Module 3 Selection Assignment 1
- * Date: February 10, 2016
+ * Date1: February 10, 2016
  * Description: This program prompts the user for the price of an object it then verifies that the value entered is at least 25, less than or equal to 100 and is a multiple of 5.
  * After verification, it calculates the difference of 100 and the given price. After the difference is found, it then calculates the minimum number of coins required as change.
  *
