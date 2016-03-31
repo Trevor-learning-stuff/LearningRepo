@@ -27,13 +27,23 @@ public class Date {
     }
 
     public Date(int month, int day, int year) {
-        this.month = month;
-        this.day = day;
-        this.year = year;
+        if (year >= 0) {
+            this.year = year;
+        }
+
+        if (isValidMonth(month)) {
+            this.month = month;
+        }
+
+        if (isValidDay(day)) {
+            this.day = day;
+        }
     }
 
     public Date(Date date) {
-
+        this.month = date.getMonth();
+        this.day = date.getDay();
+        this.year = date.getYear();
     }
 
     public int getMonth() {
@@ -49,11 +59,15 @@ public class Date {
     }
 
     public void setMonth(int m) {
-        month = m;
+        if (isValidMonth(m)) {
+            month = m;
+        }
     }
 
     public void setDay(int d) {
-        day = d;
+        if (isValidDay(d)) {
+            day = d;
+        }
     }
 
     public void setYear(int y) {
@@ -82,12 +96,61 @@ public class Date {
 
     }
 
-    public int compareTo(Date other) {
+    /*public int compareTo(Date other) {
 
+    }*/
+
+    /*public int getDaysApart(Date other) {
+
+    }*/
+
+    private boolean isValidDay(int day) {
+        switch (month) {
+            case FEB:
+                if (isLeapYear()) {
+                    if (day >= 1 && day <= 29) {
+                        return true;
+                    }else{
+                        throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                    }
+                }else if(day >= 1 && day <=28){
+                    return true;
+                }else{
+                    throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                }
+            case APR:
+            case JUN:
+            case SEP:
+            case NOV:
+                if (day >= 1 && day <= 30) {
+                    return true;
+                }else{
+                    throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                }
+            default:
+                if (day >= 1 && day <= 31) {
+                    return true;
+                }else{
+                    throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                }
+
+        }
     }
 
-    public int getDaysApart(Date other) {
+    private boolean isValidMonth(int month) {
+        if (month >= 1 && month <= 12) {
+            return true;
+        } else {
+            throw new IllegalArgumentException("Month value, " + month + ", is not between 1 and 12");
+        }
+    }
 
+    private boolean isLeapYear() {
+        if((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 

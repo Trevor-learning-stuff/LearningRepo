@@ -60,6 +60,7 @@ public class Date1 {
         monthAndYear = date.substring(date.indexOf("/") + 1);
         month = Integer.valueOf(monthAndYear.substring(0, monthAndYear.indexOf("/")));
         year = Integer.valueOf(monthAndYear.substring(monthAndYear.indexOf("/") + 1));
+
         boolean invalid31DayRange = day < 1 || day > 31;
         boolean invalid30DayRange = day < 1 || day > 30 && month == 4 || month == 6 || month == 9 || month == 11;
         boolean invalid29DayRange = day < 1 || day > 29 && month == 2;
