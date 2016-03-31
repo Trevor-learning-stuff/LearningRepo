@@ -27,7 +27,7 @@ public class Date {
     }
 
     public Date(int month, int day, int year) {
-        if (year >= 0) {
+        if (isValidYear(year)) {
             this.year = year;
         }
 
@@ -71,13 +71,13 @@ public class Date {
     }
 
     public void setYear(int y) {
-        year = y;
+        if (isValidYear(y)) {
+            year = y;
+        }
     }
 
-    public String toString(Date d) {
-        String dateString = "";
-
-        return dateString;
+    public String toString() {
+        return String.format("%tb-%d-%d", month, day, year);
     }
 
     public boolean equals(Date other) {
@@ -141,17 +141,49 @@ public class Date {
         if (month >= 1 && month <= 12) {
             return true;
         } else {
-            throw new IllegalArgumentException("Month value, " + month + ", is not between 1 and 12");
+            throw new IllegalArgumentException("Month must be between 1 and 12, inclusive");
+        }
+    }
+
+    public boolean isValidYear(int year) {
+        if (year > 0) {
+            return true;
+        }else{
+            throw new IllegalArgumentException("Year must be positive (>0)");
         }
     }
 
     private boolean isLeapYear() {
-        if((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))){
-            return true;
-        }else{
-            return false;
-        }
+        return (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));
     }
 
-
+    private String convertMonthToStringName(int month) {
+        switch (month) {
+            case 1:
+                return "JAN";
+            case 2:
+                return "FEB";
+            case 3:
+                return "MAR";
+            case 4:
+                return "APR";
+            case 5:
+                return "MAY";
+            case 6:
+                return "JUN";
+            case 7:
+                return "JUL";
+            case 8:
+                return "AUG";
+            case 9:
+                return "SEP";
+            case 10:
+                return "OCT";
+            case 11:
+                return "NOV";
+            case 12:
+                return "DEC";
+        }
+        return null;
+    }
 }
