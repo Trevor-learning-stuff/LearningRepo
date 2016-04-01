@@ -77,76 +77,79 @@ public class Date {
     }
 
     public String toString() {
-        return String.format("%tb-%d-%d", month, day, year);
+        return String.format("%s-%d-%d", convertMonthToStringName(month), day, year);
     }
 
     public boolean equals(Date other) {
-        boolean isEqual = false;
-
-        return isEqual;
+        return other.getDay() == this.getDay() && other.getMonth() == this.getMonth() && other.getYear() == this.getYear();
     }
 
+    // TODO: 4/1/16 do these
     public int getDayNumber() {
-        int dayNumber = 0;
-
-        return dayNumber;
+        return (int)30.6001*(month+1);
     }
 
     public void addDays(int amt) {
 
     }
 
-    /*public int compareTo(Date other) {
-
-    }*/
-
+    public int compareTo(Date other) {
+        if (this.day < other.getDay() || this.month < other.getMonth() || this.year < other.getMonth()) {
+            return -1;
+        }else if (this.day == other.getDay() || this.month == other.getMonth() || this.year == other.getMonth()) {
+            return 0;
+        }else{
+            return 1;
+        }
+    }
+// TODO: 4/1/16 do this one too
     /*public int getDaysApart(Date other) {
 
     }*/
 
-    private boolean isValidDay(int day) {
+    private boolean isValidDay(int aDay) {
         switch (month) {
             case FEB:
                 if (isLeapYear()) {
-                    if (day >= 1 && day <= 29) {
+                    if (aDay >= 1 && aDay <= 29) {
                         return true;
                     }else{
-                        throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                        throw new IllegalArgumentException("Day value " + aDay + " is invalid for month value " + month);
                     }
-                }else if(day >= 1 && day <=28){
+                }else if (aDay >= 1 && aDay <=28){
                     return true;
                 }else{
-                    throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                    throw new IllegalArgumentException("Day value " + aDay + " is invalid for month value " + month);
                 }
             case APR:
             case JUN:
             case SEP:
             case NOV:
-                if (day >= 1 && day <= 30) {
+                if (aDay >= 1 && aDay <= 30) {
                     return true;
                 }else{
-                    throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                    throw new IllegalArgumentException("Day value " + aDay + " is invalid for month value " + month);
                 }
             default:
-                if (day >= 1 && day <= 31) {
+                if (aDay >= 1 && aDay <= 31) {
                     return true;
                 }else{
-                    throw new IllegalArgumentException("Day value " + day + " is invalid for month value " + month);
+                    throw new IllegalArgumentException("Day value " + aDay + " is invalid for month value " + month);
                 }
 
         }
     }
 
-    private boolean isValidMonth(int month) {
-        if (month >= 1 && month <= 12) {
+    private boolean isValidMonth(int aMonth) {
+        if (aMonth >= 1 && aMonth <= 12) {
             return true;
         } else {
             throw new IllegalArgumentException("Month must be between 1 and 12, inclusive");
         }
     }
 
-    public boolean isValidYear(int year) {
-        if (year > 0) {
+    public boolean isValidYear(int aYear) {
+        if (aYear > 0) {
             return true;
         }else{
             throw new IllegalArgumentException("Year must be positive (>0)");
@@ -157,8 +160,8 @@ public class Date {
         return (year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0));
     }
 
-    private String convertMonthToStringName(int month) {
-        switch (month) {
+    private String convertMonthToStringName(int aMonth) {
+        switch (aMonth) {
             case 1:
                 return "JAN";
             case 2:
