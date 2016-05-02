@@ -1,6 +1,6 @@
 /**
  * Programmer: Trevor Campbell             CSC110AB Module 6
- * Date: April 28, 2016
+ * Date: April 29, 2016
  * Description: This program reads a file and creates a name object with a person's name and their popularity rating
  * starting from 1900 to the 2000's
  *
@@ -46,34 +46,45 @@ public class Name {
 
     private String name;
     private int[] popularityRanks = new int[11];
+    private static int MAX_STARS = 85;
+    private static int MIN_RANK = 0;
 
     public Name(String name, int[] popularityRanks){
         this.name = name;
         this.popularityRanks = popularityRanks;
     }
 
-    //get the name value
-    // by tokenizing the string and extracting the first value into the name instance variable
+    //return the value of the instance variable name for this object
     public String getName(){
         return name;
     }
 
     //get the popularity value
+    //return -1 if value is out of bounds
     public int getPop(int decade){
-        return popularityRanks[decade];
+        if (decade >= 0 && decade <= 10){
+            return popularityRanks[decade];
+        }
+        else{
+            return -1;
+        }
     }
 
     //returns a single line for a histogram
     public String getHistoLine(int decade){
-        String histoLine = "";
-        for (int i = 0; i < popularityRanks[decade]; i++) {
-            // TODO: 4/29/16 handle the limiting of printing better 87 - (0.087 * rank) = numberOfStars
-            histoLine += "*";
+        String histoLine = popularityRanks[decade] + ": ";
+        double popularity = (1000 - popularityRanks[decade]) / 11.7;
+        int histo = (int)popularity;
+
+        if(popularityRanks[decade] != 0){
+
+            for (int i = 0; i < histo; i++){
+                histoLine += "*";
+            }
         }
+
         return histoLine;
     }
-    //Return a decade's line (String) in the histogram
-    //Return null if the decade value is not valid
 
     //Labels with the user's name selection and returns
     //the histogram of the popularity ranks
@@ -82,8 +93,8 @@ public class Name {
 
         System.out.println("Histogram for name, " + name + ":");
 
-        for (int i = 0; i < popularityRanks.length - 1; i++) {
-            fullHistogram += "\t" + popularityRanks[i] + ": " + getHistoLine(popularityRanks[i]) + "\n";
+        for (int i = 0; i < 11; i++){
+            fullHistogram += this.getHistoLine(i) + "\n";
         }
         return fullHistogram;
     }
