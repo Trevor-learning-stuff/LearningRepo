@@ -251,7 +251,7 @@ public class NameApp {
         return decadeRange;
     }
 
-    private static void writeAnomaliesToFile(Name[] nameList) throws FileNotFoundException{
+    private static void writeAnomaliesToFile(Name[] nameList) {
         Name[] temp = new Name[nameList.length];
         String[] anomalies = new String[1065];
         int anomalyCount = 0;
@@ -298,7 +298,11 @@ public class NameApp {
         String fileName = "anomalies.txt";
         PrintWriter outputStream = null;
 
-        outputStream = new PrintWriter(fileName);
+        try {
+            outputStream = new PrintWriter(fileName);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found...");
+        }
 
         for (int i = 0; i < anomalies.length; i++){
             outputStream.println(anomalies[i]);
