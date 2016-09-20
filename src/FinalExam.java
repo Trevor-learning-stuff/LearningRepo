@@ -4,9 +4,9 @@ import java.util.Arrays;
  * Programmer: Trevor Campbell             CSC110AB FinalExam
  * Date: May 5, 2016
  * Description: This program will reverse the order of an array without
- * creating another array. This should work for arrays of any length.
+ * creating another array. This works for arrays of any length.
  *
- * Input: an array
+ * Input: an array of any length
  * Output: An array in the reverse order of the parameter array
  *
  * Pseudocode for this solution:
@@ -18,6 +18,7 @@ import java.util.Arrays;
  * repeat loop until array has passed through the length / 2
  * end
  */
+
 public class FinalExam {
 
     static void reverse(int arr[]) {
@@ -33,6 +34,7 @@ public class FinalExam {
     }
 
     public static void main(String[] args) {
+        //test with 10 elements
         int[] myArray10Elements = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] myArrayRev10Elements = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
         reverse(myArray10Elements);
@@ -41,6 +43,7 @@ public class FinalExam {
             System.out.println("reverse worked for 10 elements");
         }
 
+        //test with 9 elements
         int[] myArray9Elements = {0, 1, 2, 3, 4, 5, 6, 7, 8};
         int[] myArrayRev9Elements = {8, 7, 6, 5, 4, 3, 2, 1, 0};
         reverse(myArray9Elements);
@@ -49,6 +52,7 @@ public class FinalExam {
             System.out.println("reverse worked for 9 elements");
         }
 
+        //test with zero elements
         int[] myArray1Element = {0};
         int[] myArrayRev1Element = {0};
         reverse(myArray1Element);
@@ -57,12 +61,20 @@ public class FinalExam {
             System.out.println("reverse worked for 1 elements");
         }
 
+        //test with an empty array
         int[] myArrayWithNoElements = {};
         int[] myArrayRevNoElements = {};
         reverse(myArrayWithNoElements);
 
         if (Arrays.equals(myArrayWithNoElements, myArrayRevNoElements)) {
             System.out.println("reverse worked for no elements");
+        }
+
+        int[] myArrayRandomElements = {3, 2, 8, 5};
+        int[] myArrayRandomRevElements = {5, 8, 2, 3};
+
+        if (Arrays.equals(myArrayRandomElements, myArrayRandomRevElements)) {
+            System.out.println("reverse worked for a random string of elements");
         }
     }
 }
